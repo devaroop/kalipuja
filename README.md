@@ -1,13 +1,30 @@
 # Kali Puja website
 
-Single-page static site for the **London Kalibari** Kali Puja. The layout draws on kalimandir.org, and the logo,
+Static site for **London Kalibari**: the annual Kali Puja home page plus sub pages holding all the
+content imported from the old WordPress site (londonkalibari.org). The layout draws on kalimandir.org, and the logo,
 colours and fonts follow the LKB brand. It needs no build step and runs on GitHub Pages as it is.
 
 Live: https://londonkalibari.co.uk/
 
+## Pages
+
+| Page | Content file |
+|---|---|
+| `index.html` — Kali Puja home page (countdown, schedule, venue) | `config.js` |
+| `events.html` — upcoming events, archive of 88 events since 2008 (filter by category), venues | `content/events.js` |
+| `event.html?e=<slug>` — one event: notice, photos, videos, files | `content/events.js` |
+| `about.html` — who we are, aims, history, the Kalibari Centre, community centre project, associated organisations | `content/pages.js` |
+| `newsletters.html` — Kalibari Newsletter archive 2013–2024 | `content/newsletters.js` |
+| `contact.html` — registered office, centre, phone, email, map | `content/pages.js` |
+
+The top menu and footer links for every page come from `nav` in `config.js`.
+
+Imported media lives in `assets/media/` (`events/` photos, `video/`, `files/`, `newsletters/`, `centre/`).
+Larger videos stay on London Kalibari's Amazon S3 and are streamed from there.
+
 ## Updating the site
 
-**All content lives in [`config.js`](config.js).** You don't need to touch the HTML, CSS or JS.
+**All content lives in [`config.js`](config.js) and [`content/`](content/).** You don't need to touch the HTML, CSS or JS.
 
 Each year, usually only these change:
 
@@ -21,7 +38,10 @@ Each year, usually only these change:
 
 Other options:
 
-- **Show/hide/reorder sections:** edit the `sections` array.
+- **Show/hide/reorder home page sections:** edit the `sections` array.
+- **Add an event:** add an entry at the top of `events` in `content/events.js` (photos go in `assets/media/events/`).
+- **Add a newsletter:** put the file in `assets/media/newsletters/` and add it at the top of `content/newsletters.js`.
+- **Past Celebrations** on the home page lists past Kali Pujas from the event archive automatically.
 - **Hero photo:** put an image in `assets/images/` and set `hero.backgroundImage`.
 - **Logo:** `logo` (the circular LKB logo is also used as the favicon).
 - Text fields accept simple HTML (`<b>`, `<i>`, `<br>`, `<a>`).
@@ -54,10 +74,15 @@ Then open http://localhost:8000.
 ## Structure
 
 ```
-index.html          page shell (rarely needs editing)
-config.js           ALL site content
+index.html          home page shell (rarely needs editing)
+*.html              sub page shells (about, contact, events, event, newsletters)
+config.js           home page content, menu, footer
+content/            sub page content (events, pages, newsletters)
 assets/css/style.css
-assets/js/app.js    renders sections from config.js, countdown, nav, calendar
+assets/js/common.js shared header, menu, footer, helpers
+assets/js/app.js    home page sections, countdown, calendar
+assets/js/pages.js  sub page renderers
+assets/media/       imported photos, videos, files, newsletters
 assets/fonts/       brand fonts + licences
 assets/images/      logos, favicon, optional photos
 .nojekyll           tells GitHub Pages to serve files as-is

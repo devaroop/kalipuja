@@ -20,8 +20,19 @@ window.SITE = {
   logoText: "London Kalibari",               // shown next to the logo in the navigation bar
   charity: "Registered Charity No. 1158269",
 
-  /* Section order (and which sections are shown). */
+  /* Home page section order (and which sections are shown). */
   sections: ["home", "about", "schedule", "highlights", "gallery", "aboutus", "contact"],
+
+  /* Top menu and footer links, shared by every page.
+     "index.html#section" links scroll within the home page. */
+  nav: [
+    { label: "Home",           href: "index.html#home" },
+    { label: "Kali Puja 2026", href: "index.html#schedule" },
+    { label: "Events",         href: "events.html" },
+    { label: "About Us",       href: "about.html" },
+    { label: "Newsletters",    href: "newsletters.html" },
+    { label: "Contact",        href: "contact.html" }
+  ],
 
   /* ---------- Hero / home ---------- */
   hero: {
@@ -47,6 +58,13 @@ window.SITE = {
     mapLink: "https://www.google.com/maps/search/?api=1&query=Barnet+Multi+Cultural+Community+Centre+Algernon+Road+NW4+3TA",
     // Optional embedded map. Leave empty to hide.
     mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=-0.2449%2C51.5753%2C-0.2289%2C51.5834&layer=mapnik&marker=51.57936%2C-0.236915",
+    // Practical notes shown under the venue (from the London Kalibari event notice).
+    notes: [
+      "Venue: Hendon Sports Centre (Youth &amp; Community Centre), Algernon Rd, London NW4 3TA.",
+      "For catering purposes, please confirm attendance to <a href=\"mailto:kalibarilondon@gmail.com\">kalibarilondon@gmail.com</a>.",
+      "There is limited parking at the venue, and free parking on the roads nearby.",
+      "If you would like to make a donation, please note that London Kalibari\u2019s bank details have changed."
+    ],
     highlightNote: "All are welcome",
     // Shown in place of the countdown once the puja has started.
     liveMessage: "Jai Maa Kali! The puja is underway — come and join us.",
@@ -97,10 +115,12 @@ window.SITE = {
   gallery: {
     eyebrow: "Memories",
     title: "Past Celebrations",
-    text: "Photos and videos from previous years.",
+    text: "Kali Puja celebrations from previous years.",
+    // Leave empty to list past Kali Pujas from the event archive automatically.
     years: [
       // { year: "2025", link: "https://drive.google.com/..." }
-    ]
+    ],
+    more: { label: "All events, photos & videos", href: "events.html" }
   },
 
   /* ---------- About us ---------- */
@@ -111,7 +131,8 @@ window.SITE = {
       "<b>London Kalibari (LKB)</b> is a registered charity (No. 1158269) serving the cultural, spiritual and social needs of the Hindu community in London and the Home Counties. We have been bringing the community together since 1982.",
       "Through the year we celebrate Kabi Divas (Rabindranath Tagore’s birthday), Netaji’s birthday, monthly Purnima and Amavasya pujas, and our annual Kali Puja and Diwali celebration, supported by friends and well-wishers from across the wider community.",
       "Our long-cherished dream is a permanent Kali Bari: a home for religious and cultural festivals, and a place to teach Bengali and Rabindrasangeet. The London Kalibari Centre at 18–20 Byron Road, Wealdstone, Harrow HA3 7ST is now ours and is being refurbished. We are grateful to every member and donor whose support has made this possible."
-    ]
+    ],
+    more: { label: "Our story, history & the Kalibari Centre", href: "about.html" }
   },
 
   /* ---------- Contact ---------- */
@@ -122,7 +143,8 @@ window.SITE = {
     phones: ["+44 20 8907 5946"],
     social: [
       { icon: "web", label: "londonkalibari.co.uk", link: "https://londonkalibari.co.uk/" }
-    ]
+    ],
+    more: { label: "All contact details", href: "contact.html" }
   },
 
   /* ---------- Footer ---------- */
