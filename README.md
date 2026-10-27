@@ -3,7 +3,7 @@
 Single-page static site for the **London Kalibari** Kali Puja. The layout draws on kalimandir.org, and the logo,
 colours and fonts follow the LKB brand. It needs no build step and runs on GitHub Pages as it is.
 
-Live: https://devaroop.github.io/kalipuja/
+Live: https://londonkalibari.co.uk/
 
 ## Updating the site
 
@@ -49,7 +49,7 @@ Then open http://localhost:8000.
 
 1. Push this folder to a GitHub repository.
 2. Go to **Settings → Pages**, select **Deploy from a branch**, then choose `master` (or `main`) and `/ (root)`.
-3. Optional custom domain: add a `CNAME` file containing the domain, e.g. `kalipuja.londonkalibari.org`.
+3. Optional custom domain: add a `CNAME` file containing the domain, currently `londonkalibari.co.uk`.
 
 ## Structure
 
