@@ -12,10 +12,13 @@
 window.SITE = {
 
   /* ---------- Identity ---------- */
-  name: "Watford Kali Puja",
+  name: "London Kalibari",
+  eventName: "Kali Puja",          // used in page title, calendar entry
   tagline: "Shyama Puja · Deepavali · Amavasya Night",
-  description: "Annual community Kali Puja celebration in Watford, Hertfordshire, UK.",
-  logoText: "Kali Puja",          // shown in the top navigation bar
+  description: "London Kalibari's annual Kali Puja and Diwali celebration in North London, UK.",
+  logo: "assets/images/lkb-logo.png",        // circular logo (hero + favicon)
+  logoText: "London Kalibari",               // shown next to the logo in the navigation bar
+  charity: "Registered Charity No. 1158269",
 
   /* Section order (and which sections are shown). */
   sections: ["home", "about", "schedule", "highlights", "gallery", "aboutus", "contact"],
@@ -34,17 +37,17 @@ window.SITE = {
   /* ---------- Event details ---------- */
   event: {
     // ISO date-time WITH timezone offset (UK is +00:00 in November, +01:00 in summer).
-    start: "2026-11-07T18:00:00+00:00",
-    end:   "2026-11-08T01:00:00+00:00",
-    dayLabel:  "Saturday",
-    dateLabel: "7 November 2026",
-    timeLabel: "6:00 PM till late",
-    venueName: "Holywell Community Centre",
-    venueAddress: "Chaffinch Lane, Watford, WD18 9QD",
-    mapLink: "https://goo.gl/maps/FA3UQkF9L6CYUjqB6",
+    start: "2026-11-08T18:30:00+00:00",
+    end:   "2026-11-08T23:00:00+00:00",
+    dayLabel:  "Sunday",
+    dateLabel: "8 November 2026",
+    timeLabel: "6:30 PM – 11:00 PM",
+    venueName: "Barnet Multi Cultural Community Centre",
+    venueAddress: "Algernon Road, Hendon, London NW4 3TA",
+    mapLink: "https://www.google.com/maps/search/?api=1&query=Barnet+Multi+Cultural+Community+Centre+Algernon+Road+NW4+3TA",
     // Optional embedded map. Leave empty to hide.
-    mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=-0.4245%2C51.6450%2C-0.4105%2C51.6520&layer=mapnik",
-    highlightNote: "Free entry · Free parking · Bhog for all",
+    mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=-0.2449%2C51.5753%2C-0.2289%2C51.5834&layer=mapnik&marker=51.57936%2C-0.236915",
+    highlightNote: "All are welcome",
     // Shown in place of the countdown once the puja has started.
     liveMessage: "Jai Maa Kali! The puja is underway — come and join us.",
     pastMessage: "Thank you for celebrating with us. See you next year!"
@@ -70,13 +73,11 @@ window.SITE = {
     title: "What’s Happening",
     note: "Timings are approximate and follow the auspicious tithi.",
     items: [
-      { time: "06:00 PM",            event: "Doors open · Puja preparation" },
-      { time: "06:30 PM - 07:30 PM", event: "Diya lighting & Rangoli" },
-      { time: "07:30 PM - 08:30 PM", event: "Cultural programme & Shyama Sangeet" },
-      { time: "08:30 PM - 09:30 PM", event: "Bhog distribution (Khichuri, Labra, Payesh)" },
-      { time: "09:30 PM - 11:30 PM", event: "Kali Puja (Nishi Puja)" },
-      { time: "11:30 PM - 12:00 AM", event: "Pushpanjali & Aarti" },
-      { time: "12:00 AM onwards",    event: "Prasad distribution & closure" }
+      { time: "06:30 PM",            event: "Doors open · Diya lighting" },
+      { time: "07:00 PM - 08:30 PM", event: "Kali Puja" },
+      { time: "08:30 PM - 09:00 PM", event: "Pushpanjali & Aarti" },
+      { time: "09:00 PM - 10:00 PM", event: "Cultural programme & Shyama Sangeet" },
+      { time: "10:00 PM - 11:00 PM", event: "Prasad & bhog distribution" }
     ]
   },
 
@@ -85,10 +86,10 @@ window.SITE = {
     eyebrow: "Celebrate",
     title: "On the Night",
     items: [
-      { icon: "🪔", title: "Deepavali Lights",  text: "Hundreds of diyas lit together to welcome the Mother on the darkest night of the year." },
+      { icon: "🪔", title: "Deepavali Lights",  text: "Diyas lit together to welcome the Mother on the darkest night of the year." },
       { icon: "🌺", title: "Pushpanjali",       text: "Offer red hibiscus flowers to Maa Kali with the traditional anjali mantras." },
       { icon: "🎶", title: "Shyama Sangeet",    text: "Devotional songs of Ramprasad and Kamalakanta, sung by our community." },
-      { icon: "🍛", title: "Bhog for All",      text: "Freshly cooked bhog served to every guest, free of charge." }
+      { icon: "🍛", title: "Prasad & Bhog",     text: "Share the Mother’s blessings with family, friends and neighbours." }
     ]
   },
 
@@ -107,9 +108,9 @@ window.SITE = {
     eyebrow: "About Us",
     title: "Who We Are",
     paragraphs: [
-      "We are a group of families from the Indian community living in Hertfordshire and its surroundings, the same community that brings you the Watford Saraswati Puja.",
-      "Our aim is to provide a forum to come together and celebrate our cultural, religious, artistic and social heritage; to promote multiculturalism; and to pass our traditions on to the next generation.",
-      "Everyone is welcome. If you would like to volunteer, perform, or contribute towards the puja, please get in touch."
+      "<b>London Kalibari (LKB)</b> is a registered charity (No. 1158269) serving the cultural, spiritual and social needs of the Hindu community in London and the Home Counties. We have been bringing the community together since 1982.",
+      "Through the year we celebrate Kabi Divas (Rabindranath Tagore’s birthday), Netaji’s birthday, monthly Purnima and Amavasya pujas, and our annual Kali Puja and Diwali celebration, supported by friends and well-wishers from across the wider community.",
+      "Our long-cherished dream is a permanent Kali Bari: a home for religious and cultural festivals, and a place to teach Bengali and Rabindrasangeet. The London Kalibari Centre at 18–20 Byron Road, Wealdstone, Harrow HA3 7ST is now ours and is being refurbished. We are grateful to every member and donor whose support has made this possible."
     ]
   },
 
@@ -117,16 +118,16 @@ window.SITE = {
   contact: {
     eyebrow: "Location",
     title: "Join Us",
-    email: "watfordsaraswatipuja@gmail.com",
-    phones: ["(+44) 7930825516", "(+44) 7795104802"],
+    email: "kalibarilondon@gmail.com",
+    phones: ["+44 20 8907 5946"],
     social: [
-      { icon: "facebook", label: "Like us on Facebook", link: "https://www.facebook.com/Saraswati-Puja-Watford-1627791004152250" }
+      { icon: "web", label: "londonkalibari.org", link: "http://www.londonkalibari.org/" }
     ]
   },
 
   /* ---------- Footer ---------- */
   footer: {
-    copyright: "Watford Kali Puja",
+    copyright: "London Kalibari",
     disclaimer: "We may upload photos / videos taken at the Kali Puja event to this website. If you do not wish to appear, please contact us and the content will be removed promptly. To protect the privacy of individuals and children, no one will be identified without written approval."
   }
 };

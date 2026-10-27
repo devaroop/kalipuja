@@ -31,6 +31,7 @@
     youtube:   '<svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>',
     email:     '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>',
     phone:     '<svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.6 3.6a1 1 0 0 1-.3 1l-2.2 2.2z"/></svg>',
+    web:       '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.4 1.1-2.8 1.9-4zM4.3 14a8 8 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16zM8 8H5.1a8 8 0 0 1 4.3-3.6C8.8 5.5 8.3 6.7 8 8zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.4-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6zm1.8-5.6a16.5 16.5 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4z"/></svg>',
     pin:       '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>'
   };
 
@@ -68,8 +69,9 @@
         return '<section id="home" class="hero"' + bg + ">" +
           yantra() +
           '<div class="container">' +
+            (S.logo ? '<img class="hero-logo" src="' + S.logo + '" alt="' + S.name + ' logo">' : "") +
             '<p class="mantra">' + H.mantra.join("<br>") + "</p>" +
-            '<h1 class="site-title">' + S.name + "</h1>" +
+            '<h1 class="site-title">' + (S.eventName || S.name) + "<small>" + S.name + "</small></h1>" +
             '<p class="tagline">' + S.tagline + "</p>" +
             '<div class="event-date">' +
               "<span>" + E.dayLabel + "</span>" +
@@ -187,9 +189,10 @@
 
   /* Build page
   -------------------------------------------------------------------*/
-  document.title = S.name + (E.dateLabel ? " · " + E.dateLabel : "");
+  document.title = (S.eventName ? S.eventName + " · " : "") + S.name + (E.dateLabel ? " · " + E.dateLabel : "");
   $('meta[name="description"]').setAttribute("content", S.description);
-  $("#main-menu .brand").textContent = S.logoText || S.name;
+  $("#main-menu .brand").innerHTML = (S.logo ? '<img src="' + S.logo + '" alt="">' : "") + "<span>" + (S.logoText || S.name) + "</span>";
+  if (S.logo) $('link[rel="icon"]').setAttribute("href", S.logo);
 
   var active = S.sections.filter(function (k) { return renderers[k] && !(renderers[k].skip && renderers[k].skip()); });
   $("#sections").innerHTML = active.map(function (k) { return renderers[k].html(); }).join("");
@@ -199,7 +202,8 @@
 
   var year = new Date(E.start).getFullYear();
   $("#footer-section").innerHTML =
-    '<p class="copyright">&copy; ' + S.footer.copyright + " " + year + ". All rights reserved.</p>" +
+    '<p class="copyright">&copy; ' + S.footer.copyright + " " + year + ". All rights reserved." +
+      (S.charity ? "<br>" + S.charity : "") + "</p>" +
     '<p class="disclaimer">' + S.footer.disclaimer + "</p>";
 
   /* Countdown
@@ -240,14 +244,14 @@
       "UID:" + ics(start) + "@" + location.hostname,
       "DTSTAMP:" + ics(Date.now()),
       "DTSTART:" + ics(start), "DTEND:" + ics(end),
-      "SUMMARY:" + S.name,
+      "SUMMARY:" + (S.eventName ? S.eventName + " - " : "") + S.name,
       "LOCATION:" + (E.venueName + ", " + E.venueAddress).replace(/,/g, "\\,"),
       "DESCRIPTION:" + S.description + (E.mapLink ? "\\n" + E.mapLink : ""),
       "END:VEVENT", "END:VCALENDAR"
     ].join("\r\n");
     var a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([body], { type: "text/calendar" }));
-    a.download = S.name.replace(/\s+/g, "-").toLowerCase() + "-" + year + ".ics";
+    a.download = ((S.eventName ? S.eventName + " " : "") + S.name).replace(/\s+/g, "-").toLowerCase() + "-" + year + ".ics";
     document.body.appendChild(a); a.click(); a.remove();
   });
 
