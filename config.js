@@ -37,11 +37,11 @@ window.SITE = {
   /* ---------- Event details ---------- */
   event: {
     // ISO date-time WITH timezone offset (UK is +00:00 in November, +01:00 in summer).
-    start: "2026-11-08T18:30:00+00:00",
-    end:   "2026-11-08T23:00:00+00:00",
+    start: "2026-11-08T16:00:00+00:00",
+    end:   "2026-11-08T20:00:00+00:00",
     dayLabel:  "Sunday",
     dateLabel: "8 November 2026",
-    timeLabel: "6:30 PM – 11:00 PM",
+    timeLabel: "4:00 PM – 8:00 PM",
     venueName: "Barnet Multi Cultural Community Centre",
     venueAddress: "Algernon Road, Hendon, London NW4 3TA",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Barnet+Multi+Cultural+Community+Centre+Algernon+Road+NW4+3TA",
@@ -73,11 +73,11 @@ window.SITE = {
     title: "What’s Happening",
     note: "Timings are approximate and follow the auspicious tithi.",
     items: [
-      { time: "06:30 PM",            event: "Doors open · Diya lighting" },
-      { time: "07:00 PM - 08:30 PM", event: "Kali Puja" },
-      { time: "08:30 PM - 09:00 PM", event: "Pushpanjali & Aarti" },
-      { time: "09:00 PM - 10:00 PM", event: "Cultural programme & Shyama Sangeet" },
-      { time: "10:00 PM - 11:00 PM", event: "Prasad & bhog distribution" }
+      { time: "04:00 PM",            event: "Doors open · Diya lighting" },
+      { time: "04:30 PM - 06:00 PM", event: "Kali Puja" },
+      { time: "06:00 PM - 06:30 PM", event: "Pushpanjali & Aarti" },
+      { time: "06:30 PM - 07:15 PM", event: "Cultural programme & Shyama Sangeet" },
+      { time: "07:15 PM - 08:00 PM", event: "Prasad & bhog distribution" }
     ]
   },
 
@@ -121,7 +121,7 @@ window.SITE = {
     email: "kalibarilondon@gmail.com",
     phones: ["+44 20 8907 5946"],
     social: [
-      { icon: "web", label: "londonkalibari.org", link: "http://www.londonkalibari.org/" }
+      { icon: "web", label: "londonkalibari.co.uk", link: "https://londonkalibari.co.uk/" }
     ]
   },
 
