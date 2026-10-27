@@ -91,11 +91,9 @@ window.SITE = {
     title: "What’s Happening",
     note: "Timings are approximate and follow the auspicious tithi.",
     items: [
-      { time: "04:00 PM",            event: "Doors open · Diya lighting" },
-      { time: "04:30 PM - 06:00 PM", event: "Kali Puja" },
-      { time: "06:00 PM - 06:30 PM", event: "Pushpanjali & Aarti" },
-      { time: "06:30 PM - 07:15 PM", event: "Cultural programme & Shyama Sangeet" },
-      { time: "07:15 PM - 08:00 PM", event: "Prasad & bhog distribution" }
+      { time: "04:30 PM - 05:00 PM", event: "Kali Puja preparation" },
+      { time: "05:00 PM - 07:00 PM", event: "Kali Puja, Pushpanjali &amp; Aarti and Prasad distribution" },
+      { time: "07:00 PM - 08:15 PM", event: "Bhog distribution" }
     ]
   },
 
